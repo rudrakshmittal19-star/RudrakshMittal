@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0A0A0B;
+  --ink-soft: #131315;
+  --ink-line: #2A2A2C;
+  --cream: #F2EFE9;
+  --cream-soft: #E9E4DA;
+  --cream-line: #D8D2C4;
+  --fg-on-ink: #F4F2ED;
+  --fg-on-ink-muted: #9A9A9E;
+  --fg-on-cream: #161512;
+  --fg-on-cream-muted: #6B6862;
+  --accent: #A9BEDD;
+  --accent-warm: #B8843E;
+  --accent-deep: #3E5A73;
+  --stone-a: #E7E1D3;
+  --stone-c: #DED7C8;
+  --stone-d: #EDE8DC;
+
+  /* Warm editorial system — new shared tokens, used by pages being migrated
+     to the light identity. Additive only: existing tokens above are untouched
+     so pages still using them (Home, Achievements, About, etc.) are unaffected. */
+  --warm-ivory: #F5F1E8;
+  --soft-off-white: #F8F5EE;
+  --stone: #E8E1D5;
+  --warm-grey: #D8D1C5;
+  --charcoal: #171717;
+  --charcoal-2: #2A2927;
+  --muted-blue: #4A6B85;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-line: var(--ink-line);
+  --color-cream: var(--cream);
+  --color-cream-soft: var(--cream-soft);
+  --color-cream-line: var(--cream-line);
+  --color-fg-ink: var(--fg-on-ink);
+  --color-fg-ink-muted: var(--fg-on-ink-muted);
+  --color-fg-cream: var(--fg-on-cream);
+  --color-fg-cream-muted: var(--fg-on-cream-muted);
+  --color-accent: var(--accent);
+  --color-accent-warm: var(--accent-warm);
+  --color-accent-deep: var(--accent-deep);
+  --color-stone-a: var(--stone-a);
+  --color-stone-c: var(--stone-c);
+  --color-stone-d: var(--stone-d);
+  --color-warm-ivory: var(--warm-ivory);
+  --color-soft-off-white: var(--soft-off-white);
+  --color-stone: var(--stone);
+  --color-warm-grey: var(--warm-grey);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-2: var(--charcoal-2);
+  --color-muted-blue: var(--muted-blue);
+  --font-display: "Playfair Display", serif;
+  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-script: "Caveat", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--fg-on-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Fine grain, used sparingly over dark sections for a filmic feel */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Infinite horizontal marquee, two directions */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.stream-left { animation: marquee-left 34s linear infinite; }
+.stream-right { animation: marquee-right 38s linear infinite; }
+.stream-row:hover .stream-left,
+.stream-row:hover .stream-right {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stream-left, .stream-right { animation: none; }
+}
+
+/* Slow, barely-perceptible float for the hero sculpture */
+@keyframes sculpture-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
