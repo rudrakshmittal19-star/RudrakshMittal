@@ -119,11 +119,11 @@ export default function AboutPage() {
               Currently
             </span>
             <p className="max-w-2xl text-lg leading-relaxed text-fg-cream">
-              I&apos;m in my final year at {education.university.split(",")[0]},
-              wrapping up an {mostRecentRole.title} at {mostRecentRole.org}{" "}
-              and finishing a couple of side projects. I&apos;m graduating in{" "}
-              {graduatingYear}, and open to software engineering, data
-              engineering, or applied AI roles from there.
+            I&apos;m in my final year at {education.university.split(",")[0]},
+            building a couple of side projects and continuing to explore applied AI
+            and software engineering. I&apos;m graduating in {graduatingYear}, and
+            I&apos;m open to software engineering, data engineering, or applied AI
+            roles.
             </p>
           </div>
         </section>
