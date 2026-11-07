@@ -38,7 +38,7 @@ export default function ExperiencePage() {
                 builds <span className="text-muted-blue">perspective.</span>
               </h1>
               <p className="mt-6 max-w-md text-base leading-relaxed text-charcoal-2">
-                Four internships and a good deal of trial and error, each one
+                Five internships and a good deal of trial and error, each one
                 changing a little how I think about building software,
                 working with AI, and understanding how a business actually
                 grows.

@@ -160,6 +160,19 @@ export const projects = [
 
 export const experience = [
   {
+    id: "00",
+    slug: "sandmartin",
+    org: "SandMartin Consultants Pvt. Ltd.",
+    location: "Noida, India",
+    title: "Intern – Founder's Office",
+    dates: "Oct 2026 – Present",
+    status: "Current",
+    employmentType: "Internship",
+    summary:
+      "At an international business services and outsourcing firm serving clients across the UK, US, Canada, Ireland, and Australia, I work with the Founder's Office on business research, strategic initiatives, and cross-functional projects. My current focus is exploring AI and automation in finance, accounting, taxation, payroll, and business support; analysing processes for technology-driven improvements; and researching AI-powered solutions where software engineering meets business strategy.",
+    tags: ["Artificial Intelligence", "Generative AI", "Business Research", "Process Automation", "Strategic Analysis", "Technology Consulting", "AI Solution Research"],
+  },
+  {
     id: "01",
     slug: "hcltech",
     org: "HCLTech",
@@ -235,27 +248,13 @@ export const skillStreams = {
 };
 
 export const timeline = [
-  {
-    year: "2026",
-    title: "HCLTech",
-    subtitle: "AI Intern",
-    detail: "Built AI-powered incident management workflows for ServiceNow IncidentAI.",
-    type: "experience",
-  },
-  {
-    year: "2026",
-    title: "EONMED",
-    subtitle: "AI Intern",
-    detail: "Developed MediAssist, an AI-powered healthcare chatbot.",
-    type: "experience",
-  },
-  {
-    year: "2025",
-    title: "Droom Technology",
-    subtitle: "Engineering Intern",
-    detail: "Built a Python ETL pipeline, published the dataset on Hugging Face.",
-    type: "experience",
-  },
+  ...experience.slice(0, 4).map((job) => ({
+    year: job.dates.match(/\d{4}/)?.[0] ?? "",
+    title: job.org,
+    subtitle: job.title,
+    detail: job.summary,
+    type: "experience" as const,
+  })),
   {
     year: "2025",
     title: "SAP Labs Vibethon",
@@ -272,9 +271,14 @@ export const education = {
 };
 
 export const certifications = [
-  { year: "2025", name: "MongoDB Data Modeling Path", org: "MongoDB", detail: "11 December 2025" },
-  { year: "2025", name: "Image Processing Onramp", org: "MathWorks Training Services", detail: "Completed 100% · 4 December 2025" },
-  { year: "2025", name: "MongoDB Python Developer Path", org: "MongoDB", detail: "22 July 2025" },
+  { year: "2026", name: "Prompt Engineering", org: "Infosys Springboard", detail: "Nov 2026" },
+  { year: "2026", name: "AI-first Software Engineering", org: "Infosys Springboard", detail: "Nov 2026" },
+  { year: "2026", name: "Introduction to OpenAI GPT Models", org: "Infosys Springboard", detail: "Nov 2026" },
+  { year: "2026", name: "OpenAI Generative Pre-trained Transformer 3 (GPT-3) for Developers", org: "Infosys Springboard", detail: "Nov 2026" },
+  { year: "2026", name: "Gen AI 101", org: "NASSCOM FutureSkills Prime, IT-ITeS SSC", detail: "Nov 2026" },
+  { year: "2025", name: "MongoDB Data Modeling Path", org: "MongoDB University", detail: "Dec 2025" },
+  { year: "2025", name: "Image Processing Onramp", org: "MathWorks Training Services", detail: "Dec 2025" },
+  { year: "2025", name: "MongoDB Python Developer Path", org: "MongoDB University", detail: "Jul 2025" },
   { year: "2025", name: "MongoDB Basics", org: "MongoDB University", detail: "Jul 2025" },
   { year: "2025", name: "IBM Cognos Analytics", org: "IBM Cognitive Class", detail: "Jul 2025" },
   { year: "2025", name: "Operating Systems Foundations", org: "Scaler Academy", detail: "Jun 2025" },
